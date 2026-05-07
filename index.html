@@ -37,6 +37,18 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
             padding: 1rem 2rem;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         nav .container {
@@ -53,6 +65,16 @@
             color: var(--gold);
             letter-spacing: 3px;
             text-transform: uppercase;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+            }
         }
 
         .nav-menu {
@@ -64,7 +86,7 @@
         .nav-menu a {
             color: var(--white);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             position: relative;
             font-size: 0.95rem;
         }
@@ -108,6 +130,16 @@
             bottom: 0;
             background: radial-gradient(ellipse at center, rgba(107, 76, 154, 0.1) 0%, transparent 70%);
             pointer-events: none;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
         }
 
         .hero-content {
@@ -162,6 +194,23 @@
             border-radius: 50px;
             font-family: 'Georgia', serif;
             font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-primary {
@@ -209,6 +258,14 @@
         .section {
             padding: 5rem 0;
             position: relative;
+            opacity: 0;
+            animation: fadeInSection 0.8s ease forwards;
+        }
+
+        @keyframes fadeInSection {
+            to {
+                opacity: 1;
+            }
         }
 
         .section-title {
@@ -219,6 +276,18 @@
             position: relative;
             display: inline-block;
             width: 100%;
+            animation: slideInTitle 0.8s ease;
+        }
+
+        @keyframes slideInTitle {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         .section-title::after {
@@ -230,6 +299,14 @@
             width: 100px;
             height: 2px;
             background: linear-gradient(to right, transparent, var(--gold), transparent);
+            animation: expandLine 0.8s ease 0.3s forwards;
+            width: 0;
+        }
+
+        @keyframes expandLine {
+            to {
+                width: 100px;
+            }
         }
 
         /* Buyer Section */
@@ -251,10 +328,30 @@
             overflow: hidden;
             transition: all 0.3s ease;
             cursor: pointer;
+            animation: scaleIn 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         .gallery-item:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) scale(1.02);
             border-color: var(--gold);
             box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2);
         }
@@ -268,10 +365,12 @@
             justify-content: center;
             font-size: 3rem;
             transition: all 0.3s ease;
+            position: relative;
         }
 
         .gallery-item:hover .item-image {
             background: linear-gradient(135deg, var(--accent), var(--rich-purple));
+            filter: brightness(1.1);
         }
 
         .item-content {
@@ -358,6 +457,18 @@
             padding: 2rem;
             margin-top: 2rem;
             border-radius: 5px;
+            animation: slideInLeft 0.8s ease;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         .contact-item {
@@ -380,6 +491,18 @@
             text-align: center;
             margin-bottom: 2rem;
             transition: all 0.3s ease;
+            animation: slideInRight 0.8s ease;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         .upload-section:hover {
@@ -407,6 +530,17 @@
             color: var(--white);
             border-radius: 5px;
             font-family: 'Georgia', serif;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        textarea:focus,
+        select:focus {
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+            outline: none;
         }
 
         select {
@@ -476,6 +610,7 @@
             justify-content: space-between;
             align-items: center;
             border-left: 3px solid var(--gold);
+            animation: slideInLeft 0.5s ease;
         }
 
         .inventory-item-info {
@@ -499,6 +634,99 @@
             margin-top: 0.25rem;
         }
 
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: rgba(10, 10, 10, 0.95);
+            margin: 10% auto;
+            padding: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-content h2 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--white);
+            border-radius: 5px;
+            font-family: 'Georgia', serif;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .modal-buttons button {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .modal-btn-login {
+            background: var(--gold);
+            color: var(--deep-black);
+        }
+
+        .modal-btn-login:hover {
+            background: #e6c200;
+            transform: translateY(-2px);
+        }
+
+        .modal-btn-cancel {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+        }
+
+        .modal-btn-cancel:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
         /* Footer */
         footer {
             background: rgba(10, 10, 10, 0.95);
@@ -506,6 +734,7 @@
             padding: 3rem 0;
             text-align: center;
             color: rgba(255, 255, 255, 0.6);
+            animation: slideUp 0.8s ease;
         }
 
         .footer-content {
@@ -525,11 +754,12 @@
         .footer-links a {
             color: var(--gold);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .footer-links a:hover {
             color: var(--accent);
+            transform: translateY(-2px);
         }
 
         /* Animations */
@@ -591,13 +821,26 @@
     </style>
 </head>
 <body>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2>🔐 Owner Access</h2>
+            <p style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">Enter password to access portal</p>
+            <input type="password" id="passwordInput" placeholder="Enter Password" onkeypress="if(event.key==='Enter') loginOwner()">
+            <div class="modal-buttons">
+                <button class="modal-btn-login" onclick="loginOwner()">Login</button>
+                <button class="modal-btn-cancel" onclick="closeModal()">Cancel</button>
+            </div>
+            <p id="errorMsg" style="color: #ff6b6b; margin-top: 1rem; display: none;">❌ Wrong password!</p>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav>
         <div class="container" style="width: 100%; max-width: 100%; padding: 0 2rem;">
             <div class="nav-logo">✦ DIVA</div>
             <ul class="nav-menu">
                 <li><a href="#buyer">Collections</a></li>
-                <li><a href="#owner">Owner Portal</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -611,7 +854,7 @@
             <p class="hero-subtitle">Where Nature Meets Luxury</p>
             <div class="cta-buttons">
                 <button class="btn btn-primary" onclick="scrollTo('buyer'); return false;">Shop Now</button>
-                <button class="btn btn-secondary" onclick="scrollTo('owner'); return false;">Owner Portal</button>
+                <button class="btn btn-secondary" onclick="openLoginModal(); return false;">Owner Access</button>
             </div>
         </div>
     </section>
@@ -621,80 +864,13 @@
         <div class="container">
             <h2 class="section-title">Our Collections</h2>
             <div class="gallery-grid" id="gallery">
-                <div class="gallery-item">
-                    <div class="item-image">💎</div>
-                    <div class="item-content">
-                        <div class="item-title">Purple Amethyst Geode</div>
-                        <div class="price-section">
-                            <span class="original-price">$750</span>
-                            <span class="sale-price">$599</span>
-                            <span class="discount-badge">-20%</span>
-                        </div>
-                        <div class="item-description">Stunning natural amethyst clusters with deep purple tones. Perfect for collectors.</div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="item-image">✨</div>
-                    <div class="item-content">
-                        <div class="item-title">Clear Quartz Cluster</div>
-                        <div class="price-section">
-                            <span class="original-price">$500</span>
-                            <span class="sale-price">$399</span>
-                            <span class="discount-badge">-20%</span>
-                        </div>
-                        <div class="item-description">Premium quality clear quartz crystals. Ideal for home decoration and wellness.</div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="item-image">💜</div>
-                    <div class="item-content">
-                        <div class="item-title">Mixed Crystal Set</div>
-                        <div class="price-section">
-                            <span class="sale-price">$349</span>
-                        </div>
-                        <div class="item-description">Curated collection of various crystals. Includes display case.</div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="item-image">⭐</div>
-                    <div class="item-content">
-                        <div class="item-title">Agate Slice Pendant</div>
-                        <div class="price-section">
-                            <span class="original-price">$300</span>
-                            <span class="sale-price">$249</span>
-                            <span class="discount-badge">-17%</span>
-                        </div>
-                        <div class="item-description">Beautiful agate slices. Perfect for jewelry and unique gifts.</div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="item-image">🔮</div>
-                    <div class="item-content">
-                        <div class="item-title">Crystal Sphere</div>
-                        <div class="price-section">
-                            <span class="sale-price">$799</span>
-                        </div>
-                        <div class="item-description">Polished crystal spheres. Rare natural formations.</div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="item-image">🌟</div>
-                    <div class="item-content">
-                        <div class="item-title">Designer Display Box</div>
-                        <div class="price-section">
-                            <span class="original-price">$1200</span>
-                            <span class="sale-price">$999</span>
-                            <span class="discount-badge">-17%</span>
-                        </div>
-                        <div class="item-description">Luxury packaging for premium collectors. Custom available.</div>
-                    </div>
-                </div>
+                <!-- Products will be added here -->
             </div>
         </div>
     </section>
 
-    <!-- Owner Section -->
-    <section id="owner" class="section">
+    <!-- Owner Section (Hidden by default) -->
+    <section id="owner" class="section" style="display: none;">
         <div class="container">
             <h2 class="section-title">Owner Portal</h2>
             
@@ -727,6 +903,8 @@
                             417902, Dubai, U.A.E
                         </div>
                     </div>
+
+                    <button class="btn btn-secondary" onclick="logoutOwner()" style="margin-top: 2rem; width: 100%;">🚪 Logout</button>
                 </div>
 
                 <div>
@@ -808,7 +986,6 @@
         <div class="footer-content">
             <div class="footer-links">
                 <a href="#buyer">Collections</a>
-                <a href="#owner">Owner Portal</a>
                 <a href="#contact">Contact</a>
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms & Conditions</a>
@@ -818,12 +995,44 @@
     </footer>
 
     <script>
-        // Product inventory array
+        const OWNER_PASSWORD = "diva123";
         let inventory = [];
+
+        // Login functionality
+        function openLoginModal() {
+            document.getElementById('loginModal').style.display = 'block';
+            document.getElementById('passwordInput').focus();
+        }
+
+        function closeModal() {
+            document.getElementById('loginModal').style.display = 'none';
+            document.getElementById('passwordInput').value = '';
+            document.getElementById('errorMsg').style.display = 'none';
+        }
+
+        function loginOwner() {
+            const password = document.getElementById('passwordInput').value;
+            if (password === OWNER_PASSWORD) {
+                sessionStorage.setItem('ownerLoggedIn', 'true');
+                closeModal();
+                document.getElementById('owner').style.display = 'block';
+                scrollTo('owner');
+            } else {
+                document.getElementById('errorMsg').style.display = 'block';
+                document.getElementById('passwordInput').value = '';
+            }
+        }
+
+        function logoutOwner() {
+            if (confirm('Are you sure you want to logout?')) {
+                sessionStorage.removeItem('ownerLoggedIn');
+                document.getElementById('owner').style.display = 'none';
+                scrollTo('buyer');
+            }
+        }
 
         // Smooth scroll function
         function scrollTo(id) {
-            console.log('Scrolling to:', id);
             const section = document.getElementById(id);
             if (section) {
                 const offset = 80;
@@ -841,11 +1050,6 @@
                 return Math.round(((original - sale) / original) * 100);
             }
             return 0;
-        }
-
-        // Calculate sale price from discount
-        function calculateSalePrice(original, discount) {
-            return original - (original * discount / 100);
         }
 
         // Add product function
@@ -869,7 +1073,6 @@
                 return;
             }
 
-            // Create product object
             const product = {
                 id: Date.now(),
                 name: name,
@@ -882,7 +1085,6 @@
                 image: null
             };
 
-            // Handle image
             if (imageFile) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
@@ -909,11 +1111,11 @@
             newProduct.className = 'gallery-item';
             newProduct.id = 'prod-' + product.id;
 
-            let imageHTML = '📸';
-            let imageSrc = '';
+            let imageHTML = '';
             if (product.image) {
                 imageHTML = `<img src="${product.image}" style="width: 100%; height: 100%; object-fit: cover;">`;
-                imageSrc = product.image;
+            } else {
+                imageHTML = '<p style="color: rgba(255,255,255,0.5);">No Image</p>';
             }
 
             let priceDisplay = '';
@@ -993,8 +1195,21 @@
             document.getElementById('productQuantity').value = '';
         }
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('loginModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Check if already logged in
+        window.addEventListener('load', function() {
+            if (sessionStorage.getItem('ownerLoggedIn') === 'true') {
+                document.getElementById('owner').style.display = 'block';
+            }
+
+            // Initialize nav links
             const navLinks = document.querySelectorAll('.nav-menu a');
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
