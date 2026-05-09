@@ -18,6 +18,8 @@
             --white: #ffffff;
             --cream: #f5f3f0;
             --accent: #8b5fbf;
+            --modern-red: #e63946;
+            --dark-red: #a4161a;
         }
 
         body {
@@ -35,7 +37,7 @@
             z-index: 1000;
             background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(230, 57, 70, 0.3);
             padding: 1rem 2rem;
             animation: slideDown 0.6s ease-out;
         }
@@ -62,7 +64,7 @@
         .nav-logo {
             font-size: 1.8rem;
             font-weight: bold;
-            color: var(--gold);
+            color: var(--modern-red);
             letter-spacing: 3px;
             text-transform: uppercase;
             animation: glow 3s ease-in-out infinite;
@@ -70,10 +72,10 @@
 
         @keyframes glow {
             0%, 100% {
-                text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+                text-shadow: 0 0 10px rgba(230, 57, 70, 0.5);
             }
             50% {
-                text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+                text-shadow: 0 0 20px rgba(230, 57, 70, 0.8);
             }
         }
 
@@ -84,15 +86,17 @@
         }
 
         .nav-menu a {
-            color: var(--white);
+            color: var(--modern-red);
             text-decoration: none;
             transition: all 0.3s ease;
             position: relative;
             font-size: 0.95rem;
+            font-weight: 500;
         }
 
         .nav-menu a:hover {
-            color: var(--gold);
+            color: var(--white);
+            text-shadow: 0 0 10px rgba(230, 57, 70, 0.6);
         }
 
         .nav-menu a::after {
@@ -102,7 +106,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--gold);
+            background: var(--modern-red);
             transition: width 0.3s ease;
         }
 
@@ -128,7 +132,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(ellipse at center, rgba(107, 76, 154, 0.1) 0%, transparent 70%);
+            background: radial-gradient(ellipse at center, rgba(230, 57, 70, 0.1) 0%, transparent 70%);
             pointer-events: none;
             animation: pulse 4s ease-in-out infinite;
         }
@@ -152,27 +156,30 @@
             font-size: 1.1rem;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--gold);
+            color: var(--modern-red);
             margin-bottom: 1rem;
             animation: fadeInDown 1s ease;
+            font-weight: 600;
         }
 
         .hero-title {
             font-size: 4.5rem;
             font-weight: bold;
             margin: 1rem 0;
-            color: var(--white);
+            color: var(--modern-red);
             line-height: 1.1;
             animation: fadeInUp 1.2s ease;
-            text-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+            text-shadow: 0 10px 40px rgba(230, 57, 70, 0.4);
         }
 
         .hero-subtitle {
             font-size: 1.5rem;
-            color: var(--cream);
+            color: var(--modern-red);
             margin: 2rem 0;
             font-style: italic;
             animation: fadeInUp 1.4s ease;
+            font-weight: 500;
+            opacity: 0.9;
         }
 
         .cta-buttons {
@@ -214,24 +221,25 @@
         }
 
         .btn-primary {
-            background: var(--gold);
-            color: var(--deep-black);
+            background: var(--modern-red);
+            color: var(--white);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 15px 40px rgba(230, 57, 70, 0.5);
+            background: var(--dark-red);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--gold);
-            border: 2px solid var(--gold);
+            color: var(--modern-red);
+            border: 2px solid var(--modern-red);
         }
 
         .btn-secondary:hover {
-            background: var(--gold);
-            color: var(--deep-black);
+            background: var(--modern-red);
+            color: var(--white);
             transform: translateY(-3px);
         }
 
@@ -272,11 +280,14 @@
             font-size: 3.5rem;
             text-align: center;
             margin-bottom: 3rem;
-            color: var(--gold);
+            color: var(--modern-red);
             position: relative;
             display: inline-block;
             width: 100%;
             animation: slideInTitle 0.8s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         @keyframes slideInTitle {
@@ -298,7 +309,7 @@
             transform: translateX(-50%);
             width: 100px;
             height: 2px;
-            background: linear-gradient(to right, transparent, var(--gold), transparent);
+            background: linear-gradient(to right, transparent, var(--modern-red), transparent);
             animation: expandLine 0.8s ease 0.3s forwards;
             width: 0;
         }
@@ -311,7 +322,7 @@
 
         /* Buyer Section */
         #buyer {
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(107, 76, 154, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(230, 57, 70, 0.05) 100%);
         }
 
         .gallery-grid {
@@ -323,7 +334,7 @@
 
         .gallery-item {
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(230, 57, 70, 0.3);
             border-radius: 10px;
             overflow: hidden;
             transition: all 0.3s ease;
@@ -352,8 +363,8 @@
 
         .gallery-item:hover {
             transform: translateY(-10px) scale(1.02);
-            border-color: var(--gold);
-            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2);
+            border-color: var(--modern-red);
+            box-shadow: 0 20px 60px rgba(230, 57, 70, 0.3);
         }
 
         .item-image {
@@ -369,7 +380,7 @@
         }
 
         .gallery-item:hover .item-image {
-            background: linear-gradient(135deg, var(--accent), var(--rich-purple));
+            background: linear-gradient(135deg, var(--modern-red), #a4161a);
             filter: brightness(1.1);
         }
 
@@ -380,7 +391,8 @@
         .item-title {
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
-            color: var(--gold);
+            color: var(--modern-red);
+            font-weight: bold;
         }
 
         .price-section {
@@ -403,7 +415,7 @@
         }
 
         .discount-badge {
-            background: #ff6b6b;
+            background: var(--modern-red);
             color: white;
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
@@ -425,7 +437,7 @@
 
         /* Owner Section */
         #owner {
-            background: linear-gradient(135deg, rgba(107, 76, 154, 0.1) 0%, rgba(10, 10, 10, 0.8) 100%);
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.1) 0%, rgba(10, 10, 10, 0.8) 100%);
         }
 
         .owner-container {
@@ -438,10 +450,11 @@
 
         .owner-info h3 {
             font-size: 1.5rem;
-            color: var(--gold);
+            color: var(--modern-red);
             margin-bottom: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            font-weight: bold;
         }
 
         .owner-info p {
@@ -452,8 +465,8 @@
         }
 
         .contact-info {
-            background: rgba(212, 175, 55, 0.05);
-            border-left: 3px solid var(--gold);
+            background: rgba(230, 57, 70, 0.1);
+            border-left: 3px solid var(--modern-red);
             padding: 2rem;
             margin-top: 2rem;
             border-radius: 5px;
@@ -477,15 +490,16 @@
         }
 
         .contact-item strong {
-            color: var(--gold);
+            color: var(--modern-red);
             display: block;
             margin-bottom: 0.3rem;
+            font-weight: bold;
         }
 
         /* Upload Section */
         .upload-section {
-            background: rgba(107, 76, 154, 0.1);
-            border: 2px dashed var(--gold);
+            background: rgba(230, 57, 70, 0.1);
+            border: 2px dashed var(--modern-red);
             border-radius: 10px;
             padding: 2rem;
             text-align: center;
@@ -506,15 +520,16 @@
         }
 
         .upload-section:hover {
-            background: rgba(107, 76, 154, 0.2);
-            border-color: var(--accent);
+            background: rgba(230, 57, 70, 0.2);
+            border-color: var(--modern-red);
         }
 
         .upload-section h4 {
-            color: var(--gold);
+            color: var(--modern-red);
             margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-weight: bold;
         }
 
         input[type="file"],
@@ -526,7 +541,7 @@
             padding: 0.75rem;
             margin-bottom: 1rem;
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(230, 57, 70, 0.3);
             color: var(--white);
             border-radius: 5px;
             font-family: 'Georgia', serif;
@@ -537,9 +552,9 @@
         input[type="number"]:focus,
         textarea:focus,
         select:focus {
-            border-color: var(--gold);
+            border-color: var(--modern-red);
             background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 0 10px rgba(230, 57, 70, 0.3);
             outline: none;
         }
 
@@ -560,17 +575,18 @@
         }
 
         .pricing-section {
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(230, 57, 70, 0.1);
             padding: 1.5rem;
             border-radius: 8px;
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(230, 57, 70, 0.3);
         }
 
         .pricing-section h5 {
-            color: var(--gold);
+            color: var(--modern-red);
             margin-bottom: 1rem;
             font-size: 1rem;
+            font-weight: bold;
         }
 
         .price-inputs {
@@ -587,8 +603,8 @@
         }
 
         .inventory-list {
-            background: rgba(107, 76, 154, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: rgba(230, 57, 70, 0.1);
+            border: 1px solid rgba(230, 57, 70, 0.3);
             border-radius: 8px;
             padding: 1.5rem;
             margin-top: 2rem;
@@ -597,8 +613,9 @@
         }
 
         .inventory-list h5 {
-            color: var(--gold);
+            color: var(--modern-red);
             margin-bottom: 1rem;
+            font-weight: bold;
         }
 
         .inventory-item {
@@ -609,7 +626,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-left: 3px solid var(--gold);
+            border-left: 3px solid var(--modern-red);
             animation: slideInLeft 0.5s ease;
         }
 
@@ -618,7 +635,7 @@
         }
 
         .inventory-item-name {
-            color: var(--gold);
+            color: var(--modern-red);
             font-weight: bold;
             margin-bottom: 0.25rem;
         }
@@ -656,7 +673,7 @@
             background-color: rgba(10, 10, 10, 0.95);
             margin: 10% auto;
             padding: 2rem;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 2px solid rgba(230, 57, 70, 0.5);
             border-radius: 10px;
             width: 90%;
             max-width: 400px;
@@ -676,8 +693,9 @@
         }
 
         .modal-content h2 {
-            color: var(--gold);
+            color: var(--modern-red);
             margin-bottom: 1.5rem;
+            font-weight: bold;
         }
 
         .modal-content input {
@@ -685,7 +703,7 @@
             padding: 0.75rem;
             margin-bottom: 1rem;
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(230, 57, 70, 0.3);
             color: var(--white);
             border-radius: 5px;
             font-family: 'Georgia', serif;
@@ -708,29 +726,29 @@
         }
 
         .modal-btn-login {
-            background: var(--gold);
-            color: var(--deep-black);
+            background: var(--modern-red);
+            color: var(--white);
         }
 
         .modal-btn-login:hover {
-            background: #e6c200;
+            background: var(--dark-red);
             transform: translateY(-2px);
         }
 
         .modal-btn-cancel {
             background: transparent;
-            border: 1px solid var(--gold);
-            color: var(--gold);
+            border: 1px solid var(--modern-red);
+            color: var(--modern-red);
         }
 
         .modal-btn-cancel:hover {
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(230, 57, 70, 0.1);
         }
 
         /* Footer */
         footer {
             background: rgba(10, 10, 10, 0.95);
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-top: 1px solid rgba(230, 57, 70, 0.3);
             padding: 3rem 0;
             text-align: center;
             color: rgba(255, 255, 255, 0.6);
@@ -752,14 +770,16 @@
         }
 
         .footer-links a {
-            color: var(--gold);
+            color: var(--modern-red);
             text-decoration: none;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .footer-links a:hover {
-            color: var(--accent);
+            color: var(--white);
             transform: translateY(-2px);
+            text-shadow: 0 0 10px rgba(230, 57, 70, 0.5);
         }
 
         /* Animations */
@@ -908,7 +928,7 @@
                 </div>
 
                 <div>
-                    <h3 style="color: var(--gold); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 2px;">Add New Product</h3>
+                    <h3 style="color: var(--modern-red); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 2px; font-weight: bold;">Add New Product</h3>
                     
                     <div class="upload-section">
                         <h4>Upload Product Image</h4>
@@ -959,21 +979,21 @@
     <section id="contact" class="section">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
-            <div style="background: rgba(107, 76, 154, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 10px; padding: 3rem; text-align: center; margin-top: 3rem;">
+            <div style="background: rgba(230, 57, 70, 0.1); border: 1px solid rgba(230, 57, 70, 0.3); border-radius: 10px; padding: 3rem; text-align: center; margin-top: 3rem;">
                 <p style="color: var(--cream); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
                     We'd love to hear from you. Reach out with any inquiries about our collections or custom orders.
                 </p>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
                     <div>
-                        <p style="color: var(--gold); font-weight: bold; margin-bottom: 0.5rem;">📞 Call Us</p>
+                        <p style="color: var(--modern-red); font-weight: bold; margin-bottom: 0.5rem;">📞 Call Us</p>
                         <p style="color: var(--cream);">+971 4 548 7100</p>
                     </div>
                     <div>
-                        <p style="color: var(--gold); font-weight: bold; margin-bottom: 0.5rem;">📧 Email</p>
+                        <p style="color: var(--modern-red); font-weight: bold; margin-bottom: 0.5rem;">📧 Email</p>
                         <p style="color: var(--cream);">divajumeirah@gmail.com</p>
                     </div>
                     <div>
-                        <p style="color: var(--gold); font-weight: bold; margin-bottom: 0.5rem;">🌐 Visit</p>
+                        <p style="color: var(--modern-red); font-weight: bold; margin-bottom: 0.5rem;">🌐 Visit</p>
                         <p style="color: var(--cream);">www.divajumeirah.com</p>
                     </div>
                 </div>
@@ -1137,7 +1157,7 @@
                 </div>
                 <div class="item-content">
                     <div class="item-title">${product.name}</div>
-                    <div style="font-size: 0.85rem; color: var(--accent); margin-bottom: 0.5rem;">${product.category}</div>
+                    <div style="font-size: 0.85rem; color: #4ade80; margin-bottom: 0.5rem;">${product.category}</div>
                     ${priceDisplay}
                     <div class="item-description">${product.description}</div>
                     <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 0.75rem;">📦 Stock: ${product.quantity}</div>
